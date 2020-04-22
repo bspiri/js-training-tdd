@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
  * Create a function `multiply` that takes two number arguments
@@ -9,15 +9,31 @@
  */
 
 // Your code:
+function multiply(a, b) {
+  let result = 0;
 
+  //check zero
+  if (a == 0 || b == 0) {
+    return 0;
+  }
+  for (i = 0; i < Math.abs(b); i++) {
+    if ((a < 0 && b > 0) || (a > 0 && b < 0)) {
+      result -= Math.abs(a);
+    } else {
+      result += Math.abs(a);
+    }
+  }
+
+  return result;
+}
 //* Begin of tests
-const assert = require('assert');
+const assert = require("assert");
 
-assert.strictEqual(typeof multiply, 'function');
+assert.strictEqual(typeof multiply, "function");
 assert.strictEqual(multiply.length, 2);
-assert.strictEqual(multiply.toString().includes('Math.imul'), false);
-assert.strictEqual(multiply.toString().includes('*'), false);
-assert.strictEqual(multiply.toString().includes('/'), false);
+assert.strictEqual(multiply.toString().includes("Math.imul"), false);
+assert.strictEqual(multiply.toString().includes("*"), false);
+assert.strictEqual(multiply.toString().includes("/"), false);
 assert.strictEqual(multiply(34, 78), 2652);
 assert.strictEqual(multiply(123, 0), 0);
 assert.strictEqual(multiply(0, -230), 0);
